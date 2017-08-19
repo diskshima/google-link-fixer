@@ -2,7 +2,9 @@
   "name": "link-fixer",
   "version": "0.0.1",
   "description": "Browser extension to fix Google search result links.",
-  "main": "app.js",
+  "author": "Daisuke Shimamoto <diskshima@gmail.com>",
+  "homepage": "https://github.com/diskshima/link-fixer",
+  "license": "MIT",
   "scripts": {
     "build": "babel src -d dist --copy-files",
     "eslint": "./node_modules/.bin/eslint src/link-fixer.js"
