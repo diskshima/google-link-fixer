@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name": "link-fixer",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.co.jp/*", "https://www.google.com/*"],
+      "js": ["link-fixer.js"]
+    }
+  ]
+}
