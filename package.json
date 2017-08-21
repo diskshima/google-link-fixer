@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src -d dist --copy-files",
-    "eslint": "./node_modules/.bin/eslint src/link-fixer.js"
+    "eslint": "./node_modules/.bin/eslint src/link-fixer.js",
+    "build-xpi": "babel src -d dist --copy-files && zip -j dist/link-fixer@example.com.xpi dist/*"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",

@@ -3,9 +3,20 @@
   "name": "link-fixer",
   "version": "1.0",
 
+  "applications": {
+    "gecko": {
+      "id": "link-fixer@example.com"
+    }
+  },
+
   "content_scripts": [
     {
-      "matches": ["https://www.google.co.jp/*", "https://www.google.com/*"],
+      "matches": [
+        "http://www.google.co.jp/*",
+        "http://www.google.com/*",
+        "https://www.google.co.jp/*",
+        "https://www.google.com/*"
+      ],
       "js": ["link-fixer.js"]
     }
   ]
