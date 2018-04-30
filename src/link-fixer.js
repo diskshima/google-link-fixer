@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 
 const REMOVE_ATTRS = [
   'ping',
@@ -43,14 +43,25 @@ const replaceHref = (element: HTMLElement): void => {
   }
 };
 
-const decodeHref = (element: HTMLElement): HTMLElement => {
+const decodeHref = (element: HTMLElement): void => {
   const href = element.getAttribute('href');
-  const decodedHref = decodeURIComponent(href);
-  element.setAttribute('href', decodedHref);
+
+  if (href) {
+    const decodedHref = decodeURIComponent(href);
+    element.setAttribute('href', decodedHref);
+  }
 };
 
 const removeAttributes = (element: HTMLElement): void => {
   REMOVE_ATTRS.forEach(attrName => element.removeAttribute(attrName));
+};
+
+const removeClickEvents = (element: HTMLElement): void => {
+  const clone = element.cloneNode(true);
+
+  if (clone && element.parentNode) {
+    element.parentNode.replaceChild(clone, element);
+  }
 };
 
 const linkResults = querySearchResults();
@@ -59,4 +70,5 @@ linkResults.forEach((element) => {
   replaceHref(element);
   decodeHref(element);
   removeAttributes(element);
+  removeClickEvents(element);
 });
