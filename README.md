@@ -25,7 +25,11 @@ Works in Chrome and Firefox.
     ```
 1. Run the below to transpile the code.
     ```bash
-    yarn run build
+    yarn build
+    ```
+1. Run the below to build XPI.
+    ```bash
+    yarn build-xpi
     ```
 
 ## Built with
