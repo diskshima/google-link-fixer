@@ -10,7 +10,7 @@ Works in Chrome and Firefox.
 1. Install [nvm](https://github.com/creationix/nvm#install-script).
 1. Install the nvm version in `.nvmrc`.
     ```bash
-    nvm install v8.2.1
+    nvm install v8.9.4
     ```
 
 ## Building The Code
