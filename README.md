@@ -1,4 +1,4 @@
-# link-fixer
+# google-link-fixer
 
 Browser extension to remove link redirects in Google search results.
 Works in Chrome and Firefox.

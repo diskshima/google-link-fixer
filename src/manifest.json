@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "google-link-fixer",
-  "version": "1.0",
+  "version": "1.1",
 
   "applications": {
     "gecko": {
@@ -17,7 +17,7 @@
         "https://www.google.co.jp/*",
         "https://www.google.com/*"
       ],
-      "js": ["link-fixer.js"]
+      "js": ["google-link-fixer.js"]
     }
   ]
 }
