@@ -15,11 +15,11 @@ Works in Chrome and Firefox.
 
 ## Building The Code
 
-1. Install [yarn](https://yarnpkg.com/).
+1. Install [yarn](https://yarnpkg.com/) and [web-ext](https://www.npmjs.com/package/web-ext) globally.
     ```bash
-    npm install -g yarn
+    npm install -g yarn web-ext
     ```
-1. Run `yarn install`.
+1. Install Node modules.
     ```bash
     yarn install
     ```

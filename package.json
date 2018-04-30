@@ -10,7 +10,7 @@
     "eslint": "./node_modules/.bin/eslint src/link-fixer.js",
     "clean": "rm -r dist/*",
     "build-xpi": "babel src -d dist --copy-files && zip -j dist/link-fixer@example.com.xpi dist/*",
-    "upload": "./node_modules/.bin/web-ext sign -s dist --api-key $AMO_JWT_ISSUER --api-secret $AMO_JWT_SECRET"
+    "upload": "web-ext sign -s dist --api-key $AMO_JWT_ISSUER --api-secret $AMO_JWT_SECRET"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
