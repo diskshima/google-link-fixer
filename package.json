@@ -12,19 +12,16 @@
     "build-xpi": "babel src -d dist --copy-files && zip -j dist/link-fixer@example.com.xpi dist/*",
     "upload": "web-ext sign -s dist --api-key $AMO_JWT_ISSUER --api-secret $AMO_JWT_SECRET"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.24.1",
-    "eslint-plugin-flowtype": "^2.35.0",
-    "flow-bin": "^0.53.1"
-  },
-  "devDependencies": {
+    "babel-preset-flow": "^6.23.0",
     "eslint": "^4.4.1",
     "eslint-config-airbnb-base": "^11.3.1",
-    "eslint-plugin-import": "^2.7.0"
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-import": "^2.7.0",
+    "flow-bin": "^0.53.1"
   }
 }

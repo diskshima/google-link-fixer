@@ -1,14 +1,6 @@
 {
   "presets": [
-    ["env", {
-      "target": {
-        "node": "current"
-      }
-    }],
-    "react"
-  ],
-  "plugins": [
-    "transform-regenerator",
-    "transform-class-properties"
+    "env",
+    "flow",
   ]
 }
