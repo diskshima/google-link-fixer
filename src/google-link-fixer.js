@@ -6,7 +6,22 @@ const REMOVE_ATTRS = [
   'oncontextmenu',
 ];
 
-const querySearchResults = (): NodeList<HTMLElement> => document.querySelectorAll('h3.r a');
+const QUERIES = [
+  'h3.r a',
+  'a.fl',
+];
+
+const querySearchResults = (): Array<HTMLElement> => {
+  const result = [];
+
+  QUERIES.forEach((query: string) => {
+    document.querySelectorAll(query).forEach((element: HTMLElement) => {
+      result.push(element);
+    });
+  });
+
+  return result;
+};
 
 const replaceWithQuery =
     (element: HTMLElement, queries: Array<String>, paramName: string): boolean => {
