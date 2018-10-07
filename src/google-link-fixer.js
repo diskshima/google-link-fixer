@@ -6,23 +6,6 @@ const REMOVE_ATTRS = [
   'oncontextmenu',
 ];
 
-const QUERIES = [
-  'h3.r a',
-  'a.fl',
-];
-
-const querySearchResults = (): Array<HTMLElement> => {
-  const result = [];
-
-  QUERIES.forEach((query: string) => {
-    document.querySelectorAll(query).forEach((element: HTMLElement) => {
-      result.push(element);
-    });
-  });
-
-  return result;
-};
-
 const replaceWithQuery =
     (element: HTMLElement, queries: Array<String>, paramName: string): boolean => {
       const queriesIn = queries.map(v => v.replace(/^\?/, ''));
@@ -79,11 +62,50 @@ const removeClickEvents = (element: HTMLElement): void => {
   }
 };
 
-const linkResults = querySearchResults();
+type Entry = {
+  query: string,
+  processor: NodeList<HTMLElement> => void,
+};
 
-linkResults.forEach((element) => {
-  replaceHref(element);
-  decodeHref(element);
-  removeAttributes(element);
-  removeClickEvents(element);
-});
+const QUERIES: Array<Entry> = [
+  {
+    query: 'div.r a',
+    processor: (elements: NodeList<HTMLElement>) => {
+      elements.forEach((element) => {
+        replaceHref(element);
+        decodeHref(element);
+        removeAttributes(element);
+        removeClickEvents(element);
+      });
+    },
+  },
+  {
+    query: 'a.fl',
+    processor: (elements: NodeList<HTMLElement>) => {
+      elements.forEach((element) => {
+        replaceHref(element);
+        decodeHref(element);
+        removeAttributes(element);
+        removeClickEvents(element);
+      });
+    },
+  },
+  {
+    query: 'div.xpd a',
+    processor: (elements: NodeList<HTMLElement>) => {
+      elements.forEach((element) => {
+        removeAttributes(element);
+        removeClickEvents(element);
+      });
+    },
+  },
+];
+
+const main = () => {
+  QUERIES.forEach((entry: Entry) => {
+    const elements = document.querySelectorAll(entry.query);
+    entry.processor(elements);
+  });
+};
+
+main();
