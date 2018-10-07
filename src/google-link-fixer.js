@@ -20,7 +20,24 @@ const replaceWithQuery =
       return false;
     };
 
+const isGoogleCacheLink = (element: HTMLElement): boolean => {
+  const href = element.getAttribute('href');
+  return !!href && href.includes('https://webcache.googleusercontent.com');
+};
+
+const isSearchLink = (element: HTMLElement): boolean => {
+  const href = element.getAttribute('href');
+  return !!href && href.startsWith('/search');
+};
+
+const ignoreProcessing = (element: HTMLElement): boolean =>
+  isGoogleCacheLink(element) || isSearchLink(element);
+
 const replaceHref = (element: HTMLElement): void => {
+  if (ignoreProcessing(element)) {
+    return;
+  }
+
   const dataHref = element.getAttribute('data-href');
 
   if (dataHref) {
@@ -71,7 +88,7 @@ const QUERIES: Array<Entry> = [
   {
     query: 'div.r a',
     processor: (elements: NodeList<HTMLElement>) => {
-      elements.forEach((element) => {
+      elements.forEach((element: HTMLElement) => {
         replaceHref(element);
         decodeHref(element);
         removeAttributes(element);
@@ -82,7 +99,7 @@ const QUERIES: Array<Entry> = [
   {
     query: 'a.fl',
     processor: (elements: NodeList<HTMLElement>) => {
-      elements.forEach((element) => {
+      elements.forEach((element: HTMLElement) => {
         replaceHref(element);
         decodeHref(element);
         removeAttributes(element);
@@ -93,7 +110,7 @@ const QUERIES: Array<Entry> = [
   {
     query: 'div.xpd a',
     processor: (elements: NodeList<HTMLElement>) => {
-      elements.forEach((element) => {
+      elements.forEach((element: HTMLElement) => {
         removeAttributes(element);
         removeClickEvents(element);
       });
