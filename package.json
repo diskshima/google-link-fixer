@@ -1,6 +1,6 @@
 {
   "name": "google-link-fixer",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Browser extension to fix Google search result links.",
   "author": "Daisuke Shimamoto <diskshima@gmail.com>",
   "homepage": "https://github.com/diskshima/link-fixer",

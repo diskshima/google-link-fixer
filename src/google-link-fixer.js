@@ -111,6 +111,8 @@ const QUERIES: Array<Entry> = [
     query: 'div.xpd a',
     processor: (elements: NodeList<HTMLElement>) => {
       elements.forEach((element: HTMLElement) => {
+        replaceHref(element);
+        decodeHref(element);
         removeAttributes(element);
         removeClickEvents(element);
       });
