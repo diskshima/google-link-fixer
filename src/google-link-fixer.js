@@ -53,8 +53,6 @@ const replaceHref = (element: HTMLElement): void => {
     if (replaceWithQuery(element, queries, 'url')) {
       return;
     }
-
-    replaceWithQuery(element, queries, 'q');
   }
 };
 
