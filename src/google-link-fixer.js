@@ -53,6 +53,11 @@ const replaceHref = (element: HTMLElement): void => {
     if (replaceWithQuery(element, queries, 'url')) {
       return;
     }
+
+    const href = element.getAttribute('href');
+    if (href && href.indexOf('/url?') >= 0) {
+      replaceWithQuery(element, queries, 'q');
+    }
   }
 };
 
